@@ -36,3 +36,4 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+cover: https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/clay-banks-8q6e5hu3Ilc-unsplash_202208300948.jpg
