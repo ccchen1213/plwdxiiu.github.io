@@ -43,13 +43,10 @@
 #article code li {
   list-style: none;
 }
-#article a {
+/* #article a {
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  text-align: center;
-}
+} */
 #article img {
   max-width: 90%;
   max-height: 400px;
@@ -1386,7 +1383,7 @@ hue-6-2: #e6c07b
   width: 100%;
   box-sizing: border-box;
   max-width: 900px;
-  padding: 64px 40px;
+  padding: 74px 50px;
   font-size: 1rem;
   flex-wrap: wrap;
   transition: all 0.4s ease-in-out;
@@ -1414,8 +1411,8 @@ hue-6-2: #e6c07b
   position: relative;
   top: 0;
   color: #43576B;
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 22px;
 }
 .tags-content-data a > span:hover {
   top: -2px;

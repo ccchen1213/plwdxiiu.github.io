@@ -1,5 +1,7 @@
 ---
 title: Test Run Test
+date: 2020-11-03 20:33:36
+tags: 记录
 ---
 comments: false
 categories: 项目案例
@@ -12,5 +14,3 @@ tags:
   - 静态主题
 excerpt: 采用简约大方的扁平化Hexo-Quiet主题
 toc: false
-date: 2020-11-03 20:33:36
-cover: https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/vimal-s-GBg3jyGS-Ug-unsplash_202208300948.jpg
