@@ -106,5 +106,5 @@ home_layout: card
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git 
-  repo: https://github.com/plwdxiiu/CCchen.github.io.git 
+  repo: https://github.com/plwdxiiu/plwdxiiu.github.io.git 
   branch: master
