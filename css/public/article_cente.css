@@ -15,15 +15,15 @@
 #article h1,
 #article h2 {
   line-height: 40px;
-  margin: 20px 0 15px;
+  margin: 40px 0 15px;
 }
 #article h3 {
   font-size: 20px;
-  margin: 15px 0 10px;
+  margin: 30px 0 15px;
 }
 #article h4 {
   font-size: 19px;
-  margin: 15px 0 10px;
+  margin: 30px 0 15px;
 }
 #article a {
   color: #e06c75;
@@ -41,20 +41,15 @@
 #article code li {
   list-style: none;
 }
-#article a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  text-align: center;
-}
 #article img {
+  display: flex;
+  justify-content: center;
   max-width: 90%;
   max-height: 400px;
   border-radius: 5px;
   box-shadow: 0 0 3px #c3c3c3;
   cursor: pointer;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
 }
 #article pre {
@@ -115,16 +110,34 @@
   padding: 0 10px;
 }
 #article table {
-  width: 100%;
-  border: 0;
   border-collapse: collapse;
   border-spacing: 0;
-  line-height: 1.2em;
   border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 0 2px #d4d4d4;
-  word-wrap: break-word;
   table-layout: fixed;
-  margin: 20px 0 15px;
+  margin: 20px 0;
+  max-width: none;
+  min-width: 100%;
+}
+#article table tr {
+  width: 100%;
+}
+#article table tr td {
+  font-size: 16px;
+}
+#article table tr th {
+  font-size: 16px;
+  text-align: left;
+}
+#article table tr td,
+#article table tr th {
+  padding: 0 24px;
+  border: 1px solid #eee;
+  word-break: keep-all;
+  white-space: nowrap;
+  height: 40px;
+  line-height: 40px;
 }
 #article table td:hover,
 #article table tr:hover {
@@ -142,9 +155,6 @@
 }
 #article table tr:last-child td:last-child {
   border-bottom-right-radius: 3px;
-}
-#article thead {
-  text-indent: 1em;
 }
 #article thead tr {
   height: 3em;
