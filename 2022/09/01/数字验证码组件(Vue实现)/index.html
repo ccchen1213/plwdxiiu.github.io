@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>Hello World</title>
+<title>数字验证码组件(Vue实现)</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,8 +11,9 @@
 <link rel="stylesheet" href="/css/index.css">
 
 
-<meta name="keywords" content="技术博客,front-end, javascript, css, html, github, vue">
-<meta name="description" content="This is CC's blog, to record my front-end learning journey and daily life.">
+
+<meta name="keywords" content="组件,">
+<meta name="description" content="">
 
 
 <script src="/js/jquery.min.js"></script>
@@ -282,9 +283,13 @@
     <div class="post-header-background-content">
         <ul class="post-header-tag">
             
+            
+            <li><a href="/tags/组件">组件</a></li>
+            
+            
         </ul>
         
-        <h1>Hello World</h1>
+        <h1>数字验证码组件(Vue实现)</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -298,8 +303,10 @@
                 <span class="post-header-info-author-text"> <a href="../../about">CC</a></span>
                 <div class="post-header-info-author-categories">
                     
+                         <a href="../../categories/COMPONENTS/" target="_blank" >COMPONENTS</a>
+                    
                 </div>
-                <p>2022-08-30 14:55:05</p>
+                <p>2022-09-01 10:23:37</p>
             </div>
         </div>
     </div>
@@ -309,19 +316,206 @@
   <div id="article" class="post-content-info">
     
 
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+    <ul>
+<li><strong>组件展示</strong></li>
+</ul>
+<p><img src="https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/1661998777257-5a6bd77e-53f8-4f20-8c34-c8137fe4f51c_202209011026.png" alt="image.png"></p>
+<ul>
+<li><strong>组件源码</strong></li>
+</ul>
+<pre><code class="javascript">&lt;template&gt;
+  &lt;div class=&quot;s-canvas&quot;&gt;
+    &lt;canvas
+      id=&quot;s-canvas&quot;
+      :width=&quot;contentWidth&quot;
+      :height=&quot;contentHeight&quot;
+    /&gt;
+    &lt;span class=&quot;a-tag&quot; @click=&quot;$emit(&#39;change&#39;)&quot;&gt;看不清，换一个&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default &#123;
+  name: &#39;NumberVerify&#39;,
+  props: &#123;
+    // 默认注册码
+    identifyCode: &#123;
+      type: String,
+      default: &#39;1234&#39;,
+    &#125;,
+    // 字体最小值
+    fontSizeMin: &#123;
+      type: Number,
+      default: 25,
+    &#125;,
+    // 字体最大值
+    fontSizeMax: &#123;
+      type: Number,
+      default: 35,
+    &#125;,
+    // 验证码图片背景色最小值
+    backgroundColorMin: &#123;
+      type: Number,
+      default: 200,
+    &#125;,
+    // 验证码图片背景色最大值
+    backgroundColorMax: &#123;
+      type: Number,
+      default: 220,
+    &#125;,
+    // 背景干扰点最小值
+    dotColorMin: &#123;
+      type: Number,
+      default: 60,
+    &#125;,
+    // 背景干扰点最大值
+    dotColorMax: &#123;
+      type: Number,
+      default: 120,
+    &#125;,
+    // 容器宽度
+    contentWidth: &#123;
+      type: Number,
+      default: 116,
+    &#125;,
+    // 容器高度
+    contentHeight: &#123;
+      type: Number,
+      default: 38,
+    &#125;,
+  &#125;,
+  watch: &#123;
+    identifyCode() &#123;
+      this.drawPic()
+    &#125;,
+  &#125;,
+  mounted() &#123;
+    this.drawPic()
+  &#125;,
+  methods: &#123;
+    // 生成一个随机数
+    randomNum(min, max) &#123;
+      return Math.floor(Math.random() * (max - min) + min)
+    &#125;,
+    // 生成一个随机的颜色
+    randomColor(min, max) &#123;
+      const r = this.randomNum(min, max)
+      const g = this.randomNum(min, max)
+      const b = this.randomNum(min, max)
+      return &#39;rgb(&#39; + r + &#39;,&#39; + g + &#39;,&#39; + b + &#39;)&#39;
+    &#125;,
+    drawPic() &#123;
+      const canvas = document.getElementById(&#39;s-canvas&#39;)
+      const ctx = canvas.getContext(&#39;2d&#39;)
+      ctx.textBaseline = &#39;bottom&#39;
+      // 绘制背景
+      ctx.fillStyle = this.randomColor(this.backgroundColorMin, this.backgroundColorMax)
+      ctx.fillRect(0, 0, this.contentWidth, this.contentHeight)
+      // 绘制文字
+      for (let i = 0; i &lt; this.identifyCode.length; i++) &#123;
+        this.drawText(ctx, this.identifyCode[i], i)
+      &#125;
+      this.drawLine(ctx)
+      this.drawDot(ctx)
+    &#125;,
+    drawText(ctx, txt, i) &#123;
+      ctx.fillStyle = this.randomColor(50, 160) // 随机生成字体颜色
+      ctx.font = this.randomNum(this.fontSizeMin, this.fontSizeMax) + &#39;px SimHei&#39; // 随机生成字体大小
+      const x = (i + 1) * (this.contentWidth / (this.identifyCode.length + 1))
+      const y = this.randomNum(this.fontSizeMax, this.contentHeight - 5)
+      const deg = this.randomNum(-30, 30)
+      // 修改坐标原点和旋转角度
+      ctx.translate(x, y)
+      ctx.rotate(deg * Math.PI / 180)
+      ctx.fillText(txt, 0, 0)
+      // 恢复坐标原点和旋转角度
+      ctx.rotate(-deg * Math.PI / 180)
+      ctx.translate(-x, -y)
+    &#125;,
+    drawLine(ctx) &#123;
+      // 绘制干扰线
+      for (let i = 0; i &lt; 4; i++) &#123;
+        ctx.strokeStyle = this.randomColor(100, 200)
+        ctx.beginPath()
+        ctx.moveTo(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight))
+        ctx.lineTo(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight))
+        ctx.stroke()
+      &#125;
+    &#125;,
+    drawDot(ctx) &#123;
+      // 绘制干扰点
+      for (let i = 0; i &lt; 30; i++) &#123;
+        ctx.fillStyle = this.randomColor(0, 255)
+        ctx.beginPath()
+        ctx.arc(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight), 1, 0, 2 * Math.PI)
+        ctx.fill()
+      &#125;
+    &#125;,
+  &#125;,
+&#125;
+&lt;/script&gt;
+
+&lt;style lang=&quot;less&quot; scoped&gt;
+.a-tag&#123;
+  color: #6280f5;
+  text-decoration: underline;
+  padding: 12px;
+  font-size: 26px;
+&#125;
+&lt;/style&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<ul>
+<li><strong>使用</strong></li>
+</ul>
+<pre><code class="javascript">&lt;template&gt;
+  &lt;numberVerify
+    :identifyCode=&quot;identifyCode&quot;
+    :contentWidth=&quot;240&quot;
+    :contentHeight=&quot;65&quot;
+    :fontSizeMin=&quot;35&quot;
+    :fontSizeMax=&quot;55&quot;
+    @change=&quot;getRandomNumber&quot;
+  /&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import numberVerify from &#39;./numberVerify.vue&#39;
+import &#123;getUUID&#125; from &#39;./util.js&#39;
+export default &#123;
+  components: &#123;
+    zhnxPage,
+    numberVerify,
+  &#125;,
+  data() &#123;
+    return &#123;
+      identifyCode: &#39;&#39;,
+    &#125;
+  &#125;,
+  methods: &#123;
+    getRandomNumber() &#123;
+      this.identifyCode = getUUID(4)
+    &#125;,
+  &#125;
+&#125;
+  
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<ul>
+<li><strong>获取随机数的方法：（数字+字母）</strong></li>
+</ul>
+<pre><code class="javascript">// 生成随机数
+export const getUUID = function(len) &#123;
+  len = len || 6
+  len = parseInt(len, 10)
+  len = isNaN(len) ? 6 : len
+  const seed = &#39;0123456789abcdefghijklmnopqrstubwxyzABCEDFGHIJKLMNOPQRSTUVWXYZ&#39;
+  const seedLen = seed.length - 1
+  let uuid = &#39;&#39;
+  while (len--) &#123;
+    uuid += seed[Math.round(Math.random() * seedLen)]
+  &#125;
+  return uuid
+&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a><br>cover: <a target="_blank" rel="noopener" href="https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/clay-banks-8q6e5hu3Ilc-unsplash_202208300948.jpg">https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/clay-banks-8q6e5hu3Ilc-unsplash_202208300948.jpg</a></p>
 
   </div>
   <div id="gitalk-container"></div>
