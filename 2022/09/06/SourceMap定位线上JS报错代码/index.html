@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>文章归档</title>
+<title>SourceMap定位线上JS报错代码</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,8 +11,9 @@
 <link rel="stylesheet" href="/css/index.css">
 
 
-<meta name="keywords" content="技术博客,front-end, javascript, css, html, github, vue">
-<meta name="description" content="This is CC's blog, to record my front-end learning journey and daily life.">
+
+<meta name="keywords" content="项目开发,">
+<meta name="description" content="">
 
 
 <script src="/js/jquery.min.js"></script>
@@ -38,9 +39,6 @@
 
 	<body>
 		
-
-    
-    
 	<div class="header">
 		<div class="header-top" id="header-top">
 			<div class="h-left">
@@ -61,13 +59,13 @@
 								
 									
 						
-							<li class="select">
-								<a href="/archives">
-									ARCHIVE
-								</a>
-								<span class="dot"></span>
-							</li>
-							
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
 									
 						
 								<li>
@@ -278,74 +276,140 @@
 
 </script>
 
-    
-
-
-
-<div class="archive">
-    
-        <div class="header-body-background">
-    <div class="header-body-background-content">
-        <span>
-            <img src="https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/butterfly_202208301554.png" alt="Quiet">
-        </span>
-
-        <h2>6 Articles in 2 years</h2>
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('/image/ladybug.png')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+            
+            <li><a href="/tags/项目开发">项目开发</a></li>
+            
+            
+        </ul>
+        
+        <h1>SourceMap定位线上JS报错代码</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">CC</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                         <a href="../../categories/DEBUG/" target="_blank" >DEBUG</a>
+                    
+                </div>
+                <p>2022-09-06 11:05:44</p>
+            </div>
+        </div>
     </div>
 </div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
     
-    <div class="archive-content" id="content">
-        <div class="archive-content-data">
-            <div class="grouping">
-    
-        <p>
-            2022
-        </p>
-        
-        <a href="/2022/09/06/SourceMap定位线上JS报错代码/">
-            <span>SourceMap定位线上JS报错代码</span>
-            <time>09-06</time>
-        </a>
-        
-        <a href="/2022/09/01/数字验证码组件(Vue实现)/">
-            <span>数字验证码组件(Vue实现)</span>
-            <time>09-01</time>
-        </a>
-        
-        <a href="/2022/08/28/如何学习源码/">
-            <span>如何学习源码</span>
-            <time>08-28</time>
-        </a>
-        
-        <a href="/2022/03/16/Fiddler抓包工具使用/">
-            <span>Fiddler抓包工具使用</span>
-            <time>03-16</time>
-        </a>
-        
-        
-        <p>
-            2021
-        </p>
-        
-        <a href="/2021/11/25/代码审查清单/">
-            <span>代码审查清单</span>
-            <time>11-25</time>
-        </a>
-        
-        <a href="/2021/03/16/hello-world/">
-            <span>Hello World</span>
-            <time>03-16</time>
-        </a>
-        
-        
+
+    <h4 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h4><p>大部分SPA网页应用在发布时，都会进行压缩，导致监控系统收集到的报错信息都是乱码。如以下情况：<br><img src="https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/dad77d6cfecc_202209061249.png" alt="image.png"></p>
+<p><img src="https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/3fb0290fa515_202209061249.png" alt="image.png"></p>
+<p>报错信息都是以下类型：<br><a target="_blank" rel="noopener" href="https://h5.xiaowhale.com/wx/static/js/89009.5f7c3b3896500ef6f7cc.js:1:54624">https://h5.xiaowhale.com/wx/static/js/89009.5f7c3b3896500ef6f7cc.js:1:54624</a><br>这种情况下，我们不好定位错位代码。</p>
+<h4 id="二、构建包含SourceMap的生产包"><a href="#二、构建包含SourceMap的生产包" class="headerlink" title="二、构建包含SourceMap的生产包"></a>二、构建包含SourceMap的生产包</h4><p>官方推荐方法为：使用SourceMap关联JS文件。但是我们打包时，一般不会生成SourceMap。这时我们便可以调整webpack配置（<code>webpack.config.js </code>或者 <code>vue.config.js</code>)，构建一个生产包。</p>
+<ol>
+<li>修改webpack配置</li>
+</ol>
+<p><code>config.devtool = &#39;source-map&#39;</code><br><img src="https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/20_202209061251.png" alt="image.png"></p>
+<ol start="2">
+<li><p>在本地构建一个生产包：npm run build: prod</p>
+</li>
+<li><p>构建完成后，在dist目录下，找到相关的文件，此时我们可以看到已经生成了map文件。</p>
+</li>
+</ol>
+<p><img src="https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/21_202209061251.png" alt="image.png"></p>
+<h4 id="三、解析关联sourcemap和js"><a href="#三、解析关联sourcemap和js" class="headerlink" title="三、解析关联sourcemap和js"></a>三、解析关联sourcemap和js</h4><p>如需要定位:<br><a target="_blank" rel="noopener" href="https://h5.xiaowhale.com/wx/static/js/89009.5f7c3b3896500ef6f7cc.js:1:54624">https://h5.xiaowhale.com/wx/static/js/89009.5f7c3b3896500ef6f7cc.js:1:54624</a> 的代码错误.</p>
+<ol>
+<li><p>访问<a target="_blank" rel="noopener" href="https://www.hai-fe.com/decodeSourceMap">SourceMap在线解析|在线工具</a></p>
+</li>
+<li><p>选择js文件、map文件、输入报错的行&#x2F;列号，点击解码，真实代码就会被标记成红底，从而定位报错的代码</p>
+</li>
+</ol>
+<p><img src="https://safesfiles.oss-cn-beijing.aliyuncs.com/safes/ZHNX30835/22_202209061252.png" alt="image.png"></p>
+
+  </div>
+  <div id="gitalk-container"></div>
 </div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+
+    
+    <a href="/2022/09/01/%E6%95%B0%E5%AD%97%E9%AA%8C%E8%AF%81%E7%A0%81%E7%BB%84%E4%BB%B6(Vue%E5%AE%9E%E7%8E%B0)/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>数字验证码组件(Vue实现)</p>
         </div>
-    </div>    
+    </a>
+    
 </div>
-
-
-
-
+</div>
 		
 <div class="footer">
 	<div class="Copyright">
